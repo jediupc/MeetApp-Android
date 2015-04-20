@@ -1,19 +1,46 @@
 package joandev.jedimeetingsapp.ui;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
+import fr.castorflex.android.circularprogressbar.CircularProgressDrawable;
 import joandev.jedimeetingsapp.R;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends Activity implements LoginView {
+
+    @InjectView(R.id.passwordET) EditText passwordET;
+    @InjectView(R.id.userNameET) EditText userNameET;
+    @InjectView(R.id.loginButton) Button loginButton;
+    private CircularProgressBar mProgressBar;
+
+
+    LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.inject(this);
+        mProgressBar = (CircularProgressBar) findViewById(R.id.progressbar_circular);
+        presenter = new LoginPresenterImpl(this);
+
+    }
+
+    @OnClick (R.id.loginButton)
+    public void loginButtonPressed() {
+        presenter.validateCredentials(userNameET.getText().toString(), passwordET.getText().toString());
     }
 
     @Override
@@ -24,17 +51,12 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void hideSpinner() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    @Override
+    public void showSpinner() {
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 }
