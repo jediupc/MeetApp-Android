@@ -1,6 +1,7 @@
 package joandev.jedimeetingsapp.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -15,6 +17,7 @@ import butterknife.OnClick;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import fr.castorflex.android.circularprogressbar.CircularProgressDrawable;
 import joandev.jedimeetingsapp.R;
+import joandev.jedimeetingsapp.ui.MeetingList.MeetingListActivity;
 
 
 public class LoginActivity extends Activity implements LoginView {
@@ -22,6 +25,8 @@ public class LoginActivity extends Activity implements LoginView {
     @InjectView(R.id.passwordET) EditText passwordET;
     @InjectView(R.id.userNameET) EditText userNameET;
     @InjectView(R.id.loginButton) Button loginButton;
+    @InjectView(R.id.tv)TextView meeting;
+
     private CircularProgressBar mProgressBar;
 
 
@@ -42,6 +47,12 @@ public class LoginActivity extends Activity implements LoginView {
     public void loginButtonPressed() {
         presenter.validateCredentials(userNameET.getText().toString(), passwordET.getText().toString());
     }
+
+    @OnClick (R.id.tv) public void meetingTextViewPressed() {
+            Intent intent = new Intent(this, MeetingListActivity.class);
+            startActivity(intent);
+        }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
