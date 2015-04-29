@@ -1,4 +1,4 @@
-package joandev.jedimeetingsapp.ui;
+package joandev.jedimeetingsapp.ui.login;
 
 import joandev.jedimeetingsapp.domain.use_cases.login.LoginUseCase;
 import joandev.jedimeetingsapp.domain.use_cases.login.LoginUseCaseImpl;

@@ -5,5 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_meeting_list">MeetingListActivity</string>
+    <string name="APP_ID">hadii7UfamvJqAJBZJZMGgJy8bkMQOhPnvxlY97I</string>
+    <string name="CLIENT_KEY">FY8cvMoyYKVqRHB3gaGXwhtxqypExmdNdKtHOE58</string>
 
 </resources>

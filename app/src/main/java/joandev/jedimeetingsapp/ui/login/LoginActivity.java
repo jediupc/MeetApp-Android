@@ -1,21 +1,21 @@
-package joandev.jedimeetingsapp.ui;
+package joandev.jedimeetingsapp.ui.login;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.ParseAnalytics;
+import com.parse.ParsePush;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
-import fr.castorflex.android.circularprogressbar.CircularProgressDrawable;
 import joandev.jedimeetingsapp.R;
 import joandev.jedimeetingsapp.ui.MeetingList.MeetingListActivity;
 
@@ -40,6 +40,7 @@ public class LoginActivity extends Activity implements LoginView {
         ButterKnife.inject(this);
         mProgressBar = (CircularProgressBar) findViewById(R.id.progressbar_circular);
         presenter = new LoginPresenterImpl(this);
+        ParseAnalytics.trackAppOpened(getIntent());
 
     }
 
@@ -49,6 +50,10 @@ public class LoginActivity extends Activity implements LoginView {
     }
 
     @OnClick (R.id.tv) public void meetingTextViewPressed() {
+        ParsePush push = new ParsePush();
+        push.setChannel("");
+        push.setMessage("New event");
+        push.sendInBackground();
             Intent intent = new Intent(this, MeetingListActivity.class);
             startActivity(intent);
         }
