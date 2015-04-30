@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 
 import butterknife.ButterKnife;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import joandev.jedimeetingsapp.R;
 import joandev.jedimeetingsapp.ui.MeetingList.MeetingListActivity;
+import joandev.jedimeetingsapp.ui.assistants.AssistantsActivity;
 
 
 public class LoginActivity extends Activity implements LoginView {
@@ -41,6 +43,8 @@ public class LoginActivity extends Activity implements LoginView {
         mProgressBar = (CircularProgressBar) findViewById(R.id.progressbar_circular);
         presenter = new LoginPresenterImpl(this);
         ParseAnalytics.trackAppOpened(getIntent());
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
 
     }
 
@@ -57,6 +61,12 @@ public class LoginActivity extends Activity implements LoginView {
             Intent intent = new Intent(this, MeetingListActivity.class);
             startActivity(intent);
         }
+
+    @OnClick(R.id.assistantsButton)
+    public void goToAssistants() {
+        Intent intent = new Intent(this, AssistantsActivity.class);
+        startActivity(intent);
+    }
 
 
     @Override
