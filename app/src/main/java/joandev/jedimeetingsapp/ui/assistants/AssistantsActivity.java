@@ -34,14 +34,27 @@ public class AssistantsActivity extends Activity {
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+<<<<<<< Updated upstream
         datos = new ArrayList<Assistant>();
 
+=======
+        datos = new ArrayList<>();
+>>>>>>> Stashed changes
         fillWithRandom();
 
 
         aAdapter = new AssistantsAdapter(datos);
         mRecyclerView.setAdapter(aAdapter);
+<<<<<<< Updated upstream
 
+=======
+        aAdapter.SetOnItemClickListener(new AssistantsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                datos.get(position).setAssisted(!datos.get(position).isAssisted());
+            }
+        });
+>>>>>>> Stashed changes
     }
 
     private void fillWithRandom() {
