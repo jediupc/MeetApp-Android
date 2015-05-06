@@ -10,12 +10,15 @@ import android.view.MenuItem;
 import butterknife.ButterKnife;
 import joandev.jedimeetingsapp.R;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MeetingListActivity extends Activity {
+public class MeetingListActivity extends Activity implements View.OnClickListener{
 
     private RecyclerView mRecyclerView;
     private MeetingAdapter mAdapter;
@@ -38,6 +41,9 @@ public class MeetingListActivity extends Activity {
         mAdapter = new MeetingAdapter(datos);
         mRecyclerView.setAdapter(mAdapter);
 
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToRecyclerView(mRecyclerView);
+        fab.setOnClickListener(this);
     }
 
     private void generateRandomContent() {
@@ -98,5 +104,10 @@ public class MeetingListActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getApplicationContext(),"Pressed FAB",Toast.LENGTH_SHORT).show();
     }
 }
