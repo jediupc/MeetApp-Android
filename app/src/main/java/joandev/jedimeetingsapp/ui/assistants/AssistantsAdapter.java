@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -48,12 +49,14 @@ public class AssistantsAdapter extends RecyclerView.Adapter<AssistantsAdapter.As
         public TextView name;
         public TextView position;
         public Switch assisted;
+        //public ImageView avatar;
 
         public AssistantsViewHolder(View v) {
             super(v);
             this.name = (TextView) v.findViewById(R.id.assistantName);
             this.position = (TextView) v.findViewById(R.id.assistantPosition);
             this.assisted = (Switch) v.findViewById(R.id.assistantAssisted);
+            //todo poner el avatar descargado del ERP
             assisted.setOnClickListener(this);
         }
 

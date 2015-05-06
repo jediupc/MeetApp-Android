@@ -1,5 +1,8 @@
 package joandev.jedimeetingsapp.domain.model;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 /**
  * Created by joanbarroso on 30/4/15.
  */
@@ -8,9 +11,11 @@ public class Assistant {
     private String name;
     private String position;
     private boolean assisted;
+    private ImageView avatar;
 
 
-    public Assistant(String name, String[] position, boolean assisted) {
+
+    public Assistant(String name, String[] position, boolean assisted, ImageView avatar) {
     }
 
     public Assistant(){}
@@ -37,6 +42,14 @@ public class Assistant {
 
     public void setAssisted(boolean assisted) {
         this.assisted = assisted;
+    }
+
+    public ImageView getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(ImageView avatar) {
+        this.avatar = avatar;
     }
 
 
