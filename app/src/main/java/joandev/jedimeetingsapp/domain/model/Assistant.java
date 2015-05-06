@@ -1,5 +1,7 @@
 package joandev.jedimeetingsapp.domain.model;
 
+import android.view.View;
+
 /**
  * Created by joanbarroso on 30/4/15.
  */
@@ -7,6 +9,7 @@ public class Assistant {
 
     private String name;
     private String position;
+    private View avatar;
     private boolean assisted;
 
 
@@ -38,6 +41,5 @@ public class Assistant {
     public void setAssisted(boolean assisted) {
         this.assisted = assisted;
     }
-
 
 }
