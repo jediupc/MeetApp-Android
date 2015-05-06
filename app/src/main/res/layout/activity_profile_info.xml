@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="joandev.jedimeetingsapp.ui.profile_info.ProfileInfoActivity">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profileInfoContent">
+        <Button
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileInfoBackBT"
+                android:background="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+                android:backgroundTint="#ff515151"/>
+        <ImageView
+                android:layout_width="170dip"
+                android:layout_height="170dip"
+                android:id="@+id/userAvatarIV" android:layout_gravity="center"
+                android:src="@mipmap/profile_default_avatar"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Ray Donovan&apos;s"
+                android:id="@+id/userNameTV"
+                android:layout_gravity="center_horizontal"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marketing"
+                android:id="@+id/userDptTV"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/primary_material_dark"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member since: 20 Feb 2002"
+                android:id="@+id/userStatusDateTV"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/primary_material_dark"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joined in 2 of 5 assemblies"
+                android:id="@+id/userAssembliesTV"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/primary_material_dark"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joined in 5 of 7 meetings"
+                android:id="@+id/userMeetingsTV"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/primary_material_dark"/>
+        <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView" android:layout_gravity="right"
+                android:layout_weight="0.8" android:layout_marginTop="10dip"
+                android:fillViewport="false"/>
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/more_jedis_bt_txt"
+                android:id="@+id/moreJedisBT"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textColor="#ffffffff"
+                android:background="@color/material_deep_teal_500"
+                android:textStyle="bold"/>
+    </LinearLayout>
+</RelativeLayout>

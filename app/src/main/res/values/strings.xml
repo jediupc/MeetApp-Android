@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">"JEDI Meetings App "</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_profile_info">ProfileInfoActivity</string>
+    <string name="more_jedis_bt_txt">More Jedis</string>
 </resources>
