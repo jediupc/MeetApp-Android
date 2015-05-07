@@ -1,20 +1,25 @@
-package joandev.jedimeetingsapp.ui;
+package joandev.jedimeetingsapp.ui.login;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.ParsePush;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
-import fr.castorflex.android.circularprogressbar.CircularProgressDrawable;
 import joandev.jedimeetingsapp.R;
+import joandev.jedimeetingsapp.ui.MeetingList.MeetingListActivity;
+import joandev.jedimeetingsapp.ui.assistants.AssistantsActivity;
 
 
 public class LoginActivity extends Activity implements LoginView {
@@ -22,6 +27,8 @@ public class LoginActivity extends Activity implements LoginView {
     @InjectView(R.id.passwordET) EditText passwordET;
     @InjectView(R.id.userNameET) EditText userNameET;
     @InjectView(R.id.loginButton) Button loginButton;
+    @InjectView(R.id.tv)TextView meeting;
+
     private CircularProgressBar mProgressBar;
 
 
@@ -35,6 +42,9 @@ public class LoginActivity extends Activity implements LoginView {
         ButterKnife.inject(this);
         mProgressBar = (CircularProgressBar) findViewById(R.id.progressbar_circular);
         presenter = new LoginPresenterImpl(this);
+        ParseAnalytics.trackAppOpened(getIntent());
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
 
     }
 
@@ -42,6 +52,22 @@ public class LoginActivity extends Activity implements LoginView {
     public void loginButtonPressed() {
         presenter.validateCredentials(userNameET.getText().toString(), passwordET.getText().toString());
     }
+
+    @OnClick (R.id.tv) public void meetingTextViewPressed() {
+        ParsePush push = new ParsePush();
+        push.setChannel("");
+        push.setMessage("New event");
+        push.sendInBackground();
+            Intent intent = new Intent(this, MeetingListActivity.class);
+            startActivity(intent);
+        }
+
+    @OnClick(R.id.assistantsButton)
+    public void goToAssistants() {
+        Intent intent = new Intent(this, AssistantsActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

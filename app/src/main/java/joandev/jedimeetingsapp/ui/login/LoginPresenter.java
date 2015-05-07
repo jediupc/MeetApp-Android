@@ -1,4 +1,4 @@
-package joandev.jedimeetingsapp.ui;
+package joandev.jedimeetingsapp.ui.login;
 
 /**
  * Created by joanbarroso on 14/4/15.

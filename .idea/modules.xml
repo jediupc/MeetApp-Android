@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JEDIMeetingsApp.iml" filepath="$PROJECT_DIR$/JEDIMeetingsApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MeetApp-Android.iml" filepath="$PROJECT_DIR$/MeetApp-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
