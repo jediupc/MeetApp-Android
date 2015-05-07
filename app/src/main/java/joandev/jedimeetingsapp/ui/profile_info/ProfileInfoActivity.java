@@ -5,14 +5,27 @@ import android.graphics.*;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.*;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import joandev.jedimeetingsapp.R;
 
-public class ProfileInfoActivity extends Activity {
+public class ProfileInfoActivity extends Activity implements ProfileInfoView {
+    @InjectView(R.id.moreJedisBT) Button moreJedisBT;
+    @InjectView(R.id.userNameTV) TextView userNameTV;
+    @InjectView(R.id.userAvatarIV) ImageView userAvatarTV;
+    @InjectView(R.id.userDptTV) TextView userDptTV;
+    @InjectView(R.id.userStatusDateTV) TextView userStatusDateTV;
+    @InjectView(R.id.userAssembliesTV) TextView userAssembliesTV;
+    @InjectView(R.id.userMeetingsTV) TextView userMeetingsTV;
+    @InjectView(R.id.projectsSV) ScrollView projectsSV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_info);
+        ButterKnife.inject(this);
+
     }
 
     @Override
