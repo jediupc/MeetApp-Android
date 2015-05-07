@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">"JEDI Meetings App "</string>
     <string name="hello_world">Hello world!</string>
@@ -12,4 +13,5 @@
     <string name="user_profile_joined_meetings">
         "Joined in [njoined] of [ntotal] meetings"
     </string>
+    <string name="title_activity_meeting_list">MeetingListActivity</string>
 </resources>
