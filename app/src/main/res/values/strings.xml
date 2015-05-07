@@ -5,4 +5,11 @@
     <string name="title_activity_profile_info">ProfileInfoActivity</string>
     <string name="more_jedis_bt_txt">More Jedis</string>
     <string name="profile_info_projects">Projects:</string>
+    <string name="user_profile_status_since">"[status] since [date]"</string>
+    <string name="user_profile_joined_assemblies">
+        "Joined in [njoined] of [ntotal] assemblies"
+    </string>
+    <string name="user_profile_joined_meetings">
+        "Joined in [njoined] of [ntotal] meetings"
+    </string>
 </resources>
