@@ -4,6 +4,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import joandev.jedimeetingsapp.R;
 
@@ -21,10 +23,11 @@ import joandev.jedimeetingsapp.R;
  */
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingViewHolder> {
     private ArrayList<Meeting> data;
-
+    private ArrayList<Meeting> complete;
 
     public MeetingAdapter(ArrayList<Meeting> d){
-        this.data = d;
+        this.data = new ArrayList<Meeting>(d);
+        this.complete = new ArrayList<Meeting>(d);
     }
 
     /*Color corresponde:
@@ -36,12 +39,14 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
     */
 
     public TypedArray drawables;
+    boolean[] filtereds = new boolean[5];
 
     @Override
     public MeetingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         drawables = viewGroup.getContext().getResources().obtainTypedArray(R.array.avatar_imgs);
         View view = inflater.inflate(R.layout.rowlayout, viewGroup, false);
+        Arrays.fill(filtereds, false);
         return new MeetingViewHolder(view);
     }
 
@@ -49,7 +54,6 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
     public void onBindViewHolder(MeetingViewHolder holder, int i) {
         Meeting m = data.get(i);
         holder.avatar.setImageDrawable(drawables.getDrawable(m.getDpt()));
-
         holder.subject.setText(m.getSubject());
         holder.hour.setText(m.getHour());
         holder.day.setText(m.getDay());
@@ -82,5 +86,36 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
             month = (TextView) v.findViewById(R.id.month);
 
         }
+    }
+
+
+    /*Color corresponde:
+        0 --> formacio
+        1 --> marketing
+        2 --> cofi
+        3 --> rrhh
+        4 --> sistemas
+    */
+    int last = -1;
+    public void filterData(int dpt){
+        Log.d("for","FILTEEEER dpt : " + dpt + " and last : " + last);
+        if (last != dpt) {
+            data.clear();
+            //borramos todo lo que no sea dpt
+            for (Meeting m : complete) {
+                Log.d("for","meeting m");
+                if (m.getDpt() == dpt) {
+                    Log.d("for2","same dpt: " + dpt);
+                    data.add(m);
+                }
+            }
+            last = dpt;
+        }
+        else{
+            last = -1 ;
+            data.clear();
+            data.addAll(this.complete);
+        }
+        notifyDataSetChanged();
     }
 }

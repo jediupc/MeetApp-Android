@@ -11,7 +11,6 @@ public class Meeting {
     private String month;
 
     public Meeting(){
-
     }
     public Meeting(int dpt, String sub, String hour, String day, String month){
         this.dpt = dpt;
