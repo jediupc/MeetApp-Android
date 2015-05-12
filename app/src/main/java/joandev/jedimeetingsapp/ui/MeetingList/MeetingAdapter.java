@@ -98,14 +98,11 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
     */
     int last = -1;
     public void filterData(int dpt){
-        Log.d("for","FILTEEEER dpt : " + dpt + " and last : " + last);
         if (last != dpt) {
             data.clear();
             //borramos todo lo que no sea dpt
             for (Meeting m : complete) {
-                Log.d("for","meeting m");
                 if (m.getDpt() == dpt) {
-                    Log.d("for2","same dpt: " + dpt);
                     data.add(m);
                 }
             }
