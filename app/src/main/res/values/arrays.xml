@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="avatar_imgs">
+        <item>@drawable/formacio</item>
+        <item>@drawable/marketing</item>
+        <item>@drawable/cofi</item>
+        <item>@drawable/rrhh</item>
+        <item>@drawable/sistemas</item>
+    </string-array>
+</resources>
