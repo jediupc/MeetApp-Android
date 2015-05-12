@@ -4,7 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/app" />
   </component>
   <component name="IdProvider" IDEtalkID="D78E447821213159C395B4A2BC3BBEAE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
