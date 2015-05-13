@@ -1,7 +1,7 @@
 package joandev.jedimeetingsapp.ui.MeetingList;
 
-import joandev.jedimeetingsapp.domain.use_cases.login.meeting_list.MeetingListUseCase;
-import joandev.jedimeetingsapp.domain.use_cases.login.meeting_list.MeetingListUseCaseImpl;
+import joandev.jedimeetingsapp.domain.use_cases.meeting_list.MeetingListUseCase;
+import joandev.jedimeetingsapp.domain.use_cases.meeting_list.MeetingListUseCaseImpl;
 
 /**
  * Created by marcos on 28/04/2015.
