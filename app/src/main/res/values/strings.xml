@@ -8,5 +8,6 @@
     <string name="APP_ID">hadii7UfamvJqAJBZJZMGgJy8bkMQOhPnvxlY97I</string>
     <string name="CLIENT_KEY">FY8cvMoyYKVqRHB3gaGXwhtxqypExmdNdKtHOE58</string>
     <string name="title_activity_assistants">AssistantsActivity</string>
+    <string name="title_activity_members">MembersActivity</string>
 
 </resources>

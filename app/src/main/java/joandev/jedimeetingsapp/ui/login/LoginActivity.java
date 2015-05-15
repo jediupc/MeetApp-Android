@@ -19,6 +19,7 @@ import butterknife.OnClick;
 import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import joandev.jedimeetingsapp.R;
 import joandev.jedimeetingsapp.ui.MeetingList.MeetingListActivity;
+import joandev.jedimeetingsapp.ui.Members.MembersActivity;
 import joandev.jedimeetingsapp.ui.assistants.AssistantsActivity;
 
 
@@ -27,6 +28,7 @@ public class LoginActivity extends Activity implements LoginView {
     @InjectView(R.id.passwordET) EditText passwordET;
     @InjectView(R.id.userNameET) EditText userNameET;
     @InjectView(R.id.loginButton) Button loginButton;
+    @InjectView(R.id.membersButton) Button membersButton;
     @InjectView(R.id.tv)TextView meeting;
 
     private CircularProgressBar mProgressBar;
@@ -65,6 +67,12 @@ public class LoginActivity extends Activity implements LoginView {
     @OnClick(R.id.assistantsButton)
     public void goToAssistants() {
         Intent intent = new Intent(this, AssistantsActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.membersButton)
+    public void goToMembers() {
+        Intent intent = new Intent(this, MembersActivity.class);
         startActivity(intent);
     }
 

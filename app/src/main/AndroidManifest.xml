@@ -39,6 +39,10 @@
             android:name=".ui.assistants.AssistantsActivity"
             android:label="@string/title_activity_assistants" >
         </activity>
+        <activity
+            android:name=".ui.Members.MembersActivity"
+            android:label="@string/title_activity_members" >
+        </activity>
         <!-- parse push setup -->
         <service android:name="com.parse.PushService" />
 
